@@ -8,6 +8,13 @@
   align-self: stretch;
   flex-wrap: wrap;
   padding: 60px;
+
+  @media (max-width: 800px) {
+    padding: 30px;
+  }
+  @media (max-width: 500px) {
+    padding: 20px;
+  }
 }
 .title {
   font-size: 50px;
@@ -17,6 +24,12 @@
   line-height: normal;
   letter-spacing: -2px;
   color: var(--foreground-primary);
+  @media (max-width: 800px) {
+    font-size: 34px;
+  }
+  @media (max-width: 500px) {
+    font-size: 34px;
+  }
 }
 .subtitle {
   font-size: 24px;
