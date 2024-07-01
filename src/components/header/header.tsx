@@ -4,6 +4,7 @@ import DesigncodeLogoSvg from '../../assets/designcode  logo.svg';
 import MenuAlignLeftDescSvg from '../../assets/menu align left desc.svg';
 import { Drawer } from '../drawer/drawer';
 import {useState} from 'react'
+import { useRef, useEffect } from 'react';
 
 export interface HeaderProps {
     className?: string;
@@ -11,14 +12,29 @@ export interface HeaderProps {
 
 export const Header = ({ className }: HeaderProps) => {
     const [isDrawerVisible, setDrawerVisible] = useState(false)
+    const drawerRef = useRef(null);
+
     const toogleDrawer = () => {
         setDrawerVisible(!isDrawerVisible);
     }
 
+    const handleClickOutside = (event: MouseEvent) => {
+        if (!drawerRef.current || !(drawerRef.current as any).contains(event.target)){
+            setDrawerVisible(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <div className={styles.header}>
             {isDrawerVisible && (
-                <div className={styles.drawer}>
+                <div className={styles.drawer} ref={drawerRef}>
                     <Drawer />
                 </div>
             )}
