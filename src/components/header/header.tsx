@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from './header.module.scss';
 import DesigncodeLogoSvg from '../../assets/designcode  logo.svg';
+import MenuAlignLeftDescSvg from '../../assets/menu align left desc.svg';
 
 export interface HeaderProps {
     className?: string;
@@ -13,6 +14,9 @@ export const Header = ({ className }: HeaderProps) => {
                 <img className={styles.designcodeLogo} alt="" src={DesigncodeLogoSvg} />
                 <b className={styles.designcode}>DesignCode</b>
             </div>
+            <a className={styles.buttonCircle}>
+                <img className={styles.menuAlignLeftDesc} alt="" src={MenuAlignLeftDescSvg} />
+            </a>
             <div className={styles.header1}>
                 <div className={styles.button}>
                     <div className={styles.designs}>Designs</div>
