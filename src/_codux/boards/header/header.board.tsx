@@ -6,6 +6,6 @@ export default createBoard({
     Board: () => <Header />,
     isSnippet: true,
     environmentProps: {
-        windowWidth: 1031,
+        windowWidth: 1087,
     },
 });

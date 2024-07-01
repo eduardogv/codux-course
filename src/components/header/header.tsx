@@ -2,19 +2,32 @@ import classNames from 'classnames';
 import styles from './header.module.scss';
 import DesigncodeLogoSvg from '../../assets/designcode  logo.svg';
 import MenuAlignLeftDescSvg from '../../assets/menu align left desc.svg';
+import { Drawer } from '../drawer/drawer';
+import {useState} from 'react'
 
 export interface HeaderProps {
     className?: string;
 }
 
 export const Header = ({ className }: HeaderProps) => {
+    const [isDrawerVisible, setDrawerVisible] = useState(false)
+    const toogleDrawer = () => {
+        setDrawerVisible(!isDrawerVisible);
+    }
+
     return (
         <div className={styles.header}>
+            {isDrawerVisible && (
+                <div className={styles.drawer}>
+                    <Drawer />
+                </div>
+            )}
+
             <div className={styles.logo}>
                 <img className={styles.designcodeLogo} alt="" src={DesigncodeLogoSvg} />
                 <b className={styles.designcode}>DesignCode</b>
             </div>
-            <a className={styles.buttonCircle}>
+            <a className={styles.buttonCircle} onClick={toogleDrawer}>
                 <img className={styles.menuAlignLeftDesc} alt="" src={MenuAlignLeftDescSvg} />
             </a>
             <div className={styles.header1}>
