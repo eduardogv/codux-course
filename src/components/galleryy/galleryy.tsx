@@ -3,26 +3,24 @@ import styles from './galleryy.module.scss';
 import Homeimage2Jpeg from '../../assets/homeimage2.jpeg';
 import Homeimage3Jpeg from '../../assets/homeimage3.jpeg';
 import Homeimage4Jpeg from '../../assets/homeimage4.jpeg';
+import { GalleryItem } from '../gallery-item/gallery-item';
 
 export interface GalleryyProps {
     className?: string;
 }
 
+const images = [
+    { image: Homeimage2Jpeg, alt: 'Image 1'}, 
+    { image: Homeimage3Jpeg, alt: 'Image 2' }, 
+    { image: Homeimage4Jpeg, alt: 'Image 3' }
+];
+
 export const Galleryy = ({ className }: GalleryyProps) => {
     return (
         <div className={styles.gallery}>
-            <div className={styles.galleryItem}>
-                <img className={styles.galleryItemImage} alt="" src={Homeimage2Jpeg} />
-                <a className={styles.circleButton}>
-                    <img className={styles.bookmarkIcon} alt="" src="Bookmark.svg" />
-                </a>
-            </div>
-            <div className={styles.galleryItem1}>
-                <img className={styles.galleryItemImage1} alt="" src={Homeimage3Jpeg} />
-            </div>
-            <div className={styles.galleryItem1}>
-                <img className={styles.galleryItemImage1} alt="" src={Homeimage4Jpeg} />
-            </div>
+            {images.map((item, index) => (
+                <GalleryItem key={index} image={item.image} alt={item.alt} />
+            ))}
         </div>
     );
 };
