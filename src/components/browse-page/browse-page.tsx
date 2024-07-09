@@ -14,6 +14,7 @@ import HomeimageDark6 from '../../assets/homeimagedark6.jpeg';
 import HomeimageDark7 from '../../assets/homeimagedark7.jpeg';
 import HomeimageDark8 from '../../assets/homeimagedark8.jpeg';
 import HomeimageDark9 from '../../assets/homeimagedark9.jpeg';
+import { Helmet } from 'react-helmet';
 
 export interface BrowsePageProps {
     className?: string;
@@ -34,6 +35,11 @@ const images = [
 export const BrowsePage = ({ className }: BrowsePageProps) => {
     return (
         <div className={classNames(styles.root, className)}>
+            <Helmet>
+                <title>Browse - Figma UI Kit and design systems for iOS</title>
+                <meta name="description" content="Create iOS apps faster with our extensive Figma UI kit. It offers adaptive components, font/color variables, dynamic type sizes, and both light and dark mode. It also includes a design system for iOS." />
+                <meta name="keywords" content="Figma, UI Kit, iOS, design systems" />
+            </Helmet>            
             <Header />
             <div className={styles.menu}>
                 <div className={styles.dropdowns}>
