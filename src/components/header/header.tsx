@@ -39,10 +39,10 @@ export const Header = ({}: HeaderProps) => {
                 </div>
             )}
 
-            <div className={styles.logo}>
+            <Link to={"/"} className={styles.logo}>
                 <img className={styles.designcodeLogo} alt="" src={DesigncodeLogoSvg} />
                 <b className={styles.designcode}>DesignCode</b>
-            </div>
+            </Link>
             <a className={styles.buttonCircle} onClick={toogleDrawer}>
                 <img className={styles.menuAlignLeftDesc} alt="" src={MenuAlignLeftDescSvg} />
             </a>
